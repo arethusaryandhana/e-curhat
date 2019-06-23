@@ -64,16 +64,42 @@ var app = new Framework7({
 					});
 
 					$$("#btncall").on('click', function(){
-						document.addEventListener('deviceready', () => {
-						  app.dialog.alert('Device ready event fired!');
-						   alert(cordova.plugins); // Undefined
+						// document.addEventListener('deviceready', () => {
+						//   app.dialog.alert('Device ready event fired!');
+						//    alert(cordova.plugins); // Undefined
+						// //    window.plugins.CallNumber.callNumber(
+						// // 	function(){
+						// // 		app.dialog.alert("call");
+						// // 	}, 
+						// // 	function(e){},
+						// // 	"082245280715");
+						// });
+						function onSuccess(result){
+							  app.dialog.alert("Success:"+result);
+							}
+							 
+							function onError(result) {
+							  app.dialog.alert("Error:"+result);
+							}
+						   window.plugins.CallNumber.callNumber(onSuccess, onError, "082245280715", true);
+						
+					});
+
+					$$("#btnnumber").on('click', function(){
+						window.location.href="+6282245280715";
+						// document.addEventListener('deviceready', () => {
+						//   app.dialog.alert('Device ready event fired!');
+						//    console.log(window.plugins.CallNumber.callNumber); // Undefined
 						//    window.plugins.CallNumber.callNumber(
 						// 	function(){
 						// 		app.dialog.alert("call");
 						// 	}, 
 						// 	function(e){},
-						// 	"082245280715");
-						});
+						// 	"+6282245280715");
+						// 	// window.plugins.CallNumber.callNumber = function(success, failure, number, bypassAppChooser){
+						// 	//     cordova.exec(app.dialog.alert("sukses"), failure, "CallNumber", "callNumber", [number, bypassAppChooser]);
+						// 	// };
+						// });
 						
 					});
 				},

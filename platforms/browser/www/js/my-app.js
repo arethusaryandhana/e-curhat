@@ -65,21 +65,22 @@ var app = new Framework7({
 
 					$$("#btncall").on('click', function(){
 						// window.location.href="+6282245280715";
-						document.addEventListener('deviceready', onDeviceReady, false)
+						// document.addEventListener('deviceready', onDeviceReady, false)
 						  // app.dialog.alert('Device ready event fired!');
 						   // console.log(window.plugins.CallNumber.callNumber); // Undefined
-						   function onDeviceReady(){
-						   	window.plugins.CallNumber.callNumber(
-							function(){
-								app.dialog.alert("calling");
-							}, 
-							function(e){},
-							"+6282245280715");
+						   function onSuccess(result){
+							  app.dialog.alert("Success:"+result);
+							}
+							 
+							function onError(result) {
+							  app.dialog.alert("Error:"+result);
+							}
+						   window.plugins.CallNumber.callNumber(onSuccess, onError, "082245280715", true);
 							// window.plugins.CallNumber.callNumber = function(success, failure, number, bypassAppChooser){
 							//     cordova.exec(app.dialog.alert("sukses"), failure, "CallNumber", "callNumber", [number, bypassAppChooser]);
 							// };
 						
-						   }
+						   // }
 						   
 					});
 
