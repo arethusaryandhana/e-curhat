@@ -1,6 +1,5 @@
 var $$ = Dom7;
 
-
 var app = new Framework7({
 	root: '#app',
 	name: 'F7App',
@@ -65,12 +64,17 @@ var app = new Framework7({
 					});
 
 					$$("#btncall").on('click', function(){
-						app.plugins.CallNumber.callNumber(
+						document.addEventListener('deviceready', () => {
+						  // alert('Device ready event fired!');
+						   // alert(cordova.plugins); // Undefined
+						   window.cordova.plugins.CallNumber.callNumber(
 							function(){
 								app.dialog.alert("call");
 							}, 
 							function(e){},
 							"082245280715");
+						});
+						
 					});
 				},
 			}
