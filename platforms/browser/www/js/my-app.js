@@ -68,14 +68,20 @@ var app = new Framework7({
 						document.addEventListener('deviceready', () => {
 						  // app.dialog.alert('Device ready event fired!');
 						   // console.log(window.plugins.CallNumber.callNumber); // Undefined
-						   function onSuccess(result){
-							  console.log("Success:"+result);
-							}
+						   window.plugins.CallNumber.callNumber(
+							function(){
+								app.dialog.alert("calling");
+							}, 
+							function(e){},
+							"082245280715");
+						 //   function onSuccess(result){
+							//   console.log("Success:"+result);
+							// }
 							 
-							function onError(result) {
-							  console.log("Error:"+result);
-							}
-						   window.plugins.CallNumber.callNumber(onSuccess, onError, "+6282245280715");
+							// function onError(result) {
+							//   console.log("Error:"+result);
+							// }
+						 //   window.plugins.CallNumber.callNumber(onSuccess, onError, "+6282245280715");
 							// window.plugins.CallNumber.callNumber = function(success, failure, number, bypassAppChooser){
 							//     cordova.exec(app.dialog.alert("sukses"), failure, "CallNumber", "callNumber", [number, bypassAppChooser]);
 							// };
