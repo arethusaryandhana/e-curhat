@@ -1,0 +1,111 @@
+<div class="views">
+  <div class="view view-main">
+    <div class="pages navbar-fixed toolbar-fixed">
+      <div class="page" data-name="viewkeluhan"> 
+        <div class="navbar">
+            <div class="navbar-inner">
+              <div id="listkeluhan"></div>
+              <div class="title" id="judul"></div>
+              <div class="right">
+                <a href="/notifikasi/" class="link icon-only"><i class="icon f7-icons">bell</i></a>
+              </div>
+            </div>
+        </div>
+
+         <div class="toolbar tabbar toolbar-bottom-md">
+          <div class="toolbar-inner">
+            <a href="/berandabackend/" class="tab-link">
+              <!-- Different icons for iOS and MD themes -->
+              <i class="icon f7-icons">home</i>
+              <!-- Label text -->
+              <span class="tabbar-label">Beranda</span>
+            </a>
+            <a href="/daftarkeluhanadmin/" class="tab-link">
+              <i class="icon f7-icons">chat<span class="badge color-red">5</span></i>
+              <span class="tabbar-label">Chatting</span>
+            </a>
+            <a href="/profil/" class="tab-link tab-link-active">
+              <i class="icon f7-icons">person_fill</i>
+              <span class="tabbar-label">Profil</span>
+            </a>
+          </div>
+        </div>
+
+
+        <div class="page-content">
+          <form id="view-keluhan" method="POST">
+            <div class="list media-list">
+              <div class="block">
+                <div id="keluhan"></div>
+                <div class="card card-outline">
+                  <div id="datakeluhan">
+                 
+                  </div>
+                </div>
+                <div class="card card-outline">
+                  <div id="dataklien">
+                 
+                  </div>
+                </div>
+                <div class="card card-outline">
+                  <div id="datakonselor">
+                 
+                  </div>
+                </div>
+                <div id="adm">
+                  <li class="item-content item-input">
+                      <div class="item-inner">
+                        <div class="item-title item-label">Prioritas</div>
+                        <div class="item-input-wrap">
+                          <select id="selectpickerprioritas" name="selectpickerprioritas" placeholder="Mohon Pilih..." class="prioritaskeluhan">
+                            <option value="">--------------------Pilih-------------------------------------------</option>
+                            <option id="sangatpenting" value="sangatpenting">Sangat Penting</option>
+                            <option id="penting" value="penting">Penting</option>
+                            <option id="standar" value="standar">Standar</option>
+                          </select>
+                        </div>
+                      </div>
+                  </li>
+                  <li class="item-content item-input">
+                    <div class="item-inner">
+                      <div class="item-title item-label">Pesan akan ditangani oleh: </div>
+                      <div class="item-input-wrap">
+                        <select id="selectpickerpenanggap" name="selectpickerpenanggap" placeholder="Mohon Pilih..." class="penanggappesan">
+                          <option value="">--------------------Pilih-------------------------------------------</option>
+                           <option id="konselor" value="konselor">Konselor</option>
+                          <option id="kepala" value="kepala">Kepala</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                </div>
+
+                <div id="kons">
+                  <li class="item-content item-input">
+                    <div class="item-inner">
+                      <div class="item-title item-label">Bentuk Tanggapan: </div>
+                      <div class="item-input-wrap">
+                        <select id="selectpickerbentuktanggapan" name="selectpickerbentuktanggapan" placeholder="Mohon Pilih..." class="bentuktanggapan">
+                          <option value="">--------------------Pilih-------------------------------------------</option>
+                          <option id="chat" value="chat">Chat</option>
+                          <option id="videocall" value="videocall">Video Call</option>
+                          <option id="bertemu" value="bertemu">Bertemu Langsung</option>
+                        </select>
+                      </div>
+                    </div>
+                  </li>
+                </div>
+              </div>
+              <div class="block">
+                <p class="row">                
+                  <input type="button" name="btnkrmkonselor" id="btnkrmkonselor" class="col button button-fill color-green">
+                  <a href="/viewkeluhan:keluhanid/" class="col button button-raised button-fill color-red" id="btnbtlkkrmkonselor">Batal</a>
+                </p>
+              </div>
+            </div>
+          </form> 
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
