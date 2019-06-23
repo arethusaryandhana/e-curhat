@@ -1,14 +1,6 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
-      "id": "cordova-plugin-battery-status.battery",
-      "file": "plugins/cordova-plugin-battery-status/www/battery.js",
-      "pluginId": "cordova-plugin-battery-status",
-      "clobbers": [
-        "navigator.battery"
-      ]
-    },
-    {
       "id": "cordova-plugin-call-number.CallNumber",
       "file": "plugins/cordova-plugin-call-number/www/CallNumber.js",
       "pluginId": "cordova-plugin-call-number",
@@ -380,7 +372,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     }
   ];
   module.exports.metadata = {
-    "cordova-plugin-battery-status": "1.2.5",
     "cordova-plugin-call-number": "1.0.1",
     "cordova-plugin-camera": "2.4.1",
     "cordova-plugin-device": "1.1.7",

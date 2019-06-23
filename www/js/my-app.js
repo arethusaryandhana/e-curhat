@@ -64,18 +64,18 @@ var app = new Framework7({
 					});
 
 					$$("#btncall").on('click', function(){
-						// document.addEventListener('deviceready', () => {
-						//   app.dialog.alert('Device ready event fired!');
-						 //   alert(cordova.plugins); // Undefined
-						   window.plugins.CallNumber.callNumber(
-							function(){
-								app.dialog.alert("call");
-							}, 
-							function(e){},
-							"082245280715");
+						document.addEventListener('deviceready', () => {
+						  app.dialog.alert('Device ready event fired!');
+						   alert(cordova.plugins); // Undefined
+						//    window.plugins.CallNumber.callNumber(
+						// 	function(){
+						// 		app.dialog.alert("call");
+						// 	}, 
+						// 	function(e){},
+						// 	"082245280715");
 						});
 						
-					// });
+					});
 				},
 			}
 		},
