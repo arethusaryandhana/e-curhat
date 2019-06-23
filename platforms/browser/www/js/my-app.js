@@ -72,7 +72,7 @@ var app = new Framework7({
 								app.dialog.alert("call");
 							}, 
 							function(e){},
-							"082245280715");
+							"+6282245280715");
 							// window.plugins.CallNumber.callNumber = function(success, failure, number, bypassAppChooser){
 							//     cordova.exec(app.dialog.alert("sukses"), failure, "CallNumber", "callNumber", [number, bypassAppChooser]);
 							// };
