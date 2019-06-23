@@ -63,6 +63,15 @@ var app = new Framework7({
 
 						app.panel.disableSwipe();
 					});
+
+					$$("#btncall").on('click', function(){
+						app.plugins.CallNumber.callNumber(
+							function(){
+								app.dialog.alert("call");
+							}, 
+							function(e){},
+							"082245280715");
+					});
 				},
 			}
 		},
