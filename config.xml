@@ -105,5 +105,4 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <plugin name="cordova-plugin-firebase" spec="~2.0.5" />
 </widget>
