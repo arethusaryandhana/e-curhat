@@ -64,8 +64,8 @@ var app = new Framework7({
 					});
 
 					$$("#btncall").on('click', function(){
-						document.addEventListener('deviceready', () => {
-						  // app.dialog.alert('Device ready event fired!');
+						// document.addEventListener('deviceready', () => {
+						//   app.dialog.alert('Device ready event fired!');
 						 //   alert(cordova.plugins); // Undefined
 						   window.plugins.CallNumber.callNumber(
 							function(){
@@ -75,7 +75,7 @@ var app = new Framework7({
 							"082245280715");
 						});
 						
-					});
+					// });
 				},
 			}
 		},
