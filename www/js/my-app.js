@@ -24,7 +24,7 @@ var app = new Framework7({
 
 						var x = new FormData($$('.form-login')[0]);
 						
-						app.request.post('http://192.168.1.8:280/ecurhat/login.php',
+						app.request.post('http://172.20.10.2:280/ecurhat/login.php',
 							{username:username, password:password}, function(data){
 								localStorage.username = username;
 								var obj = JSON.parse(data);
@@ -99,7 +99,7 @@ var app = new Framework7({
 
 						var x = new FormData($$('.register')[0]);
 				       								
-						app.request.post('http://192.168.1.8:280/ecurhat/registeruser.php', 
+						app.request.post('http://172.20.10.2:280/ecurhat/registeruser.php', 
 						x, function(data){
 						 app.dialog.alert("Akun anda berhasil terdaftar");
 						 page.router.navigate('/login/');
@@ -240,7 +240,7 @@ var app = new Framework7({
 						$$('#status_identitas').html(iden);
 
 						var x = new FormData($$('.keluhan')[0]);
-						app.request.post('http://192.168.1.8:280/ecurhat/insertkeluhan.php', x, function(data){
+						app.request.post('http://172.20.10.2:280/ecurhat/insertkeluhan.php', x, function(data){
 							var idkeluhan = data;
 							// var lastidkeluhan = "<input type='hidden' name='keluhan_id' id='keluhan_id' value='"+idkeluhan+"'>";
 							// $$('#lastidkeluhan').html(lastidkeluhan);
@@ -276,7 +276,7 @@ var app = new Framework7({
 					tipehal = "keluhanmasuk";
 					localStorage.tipehal = tipehal;
 
-					app.request.post('http://192.168.1.8:280/ecurhat/showlistkeluhan.php', {username, status, tipehal} , function(data){
+					app.request.post('http://172.20.10.2:280/ecurhat/showlistkeluhan.php', {username, status, tipehal} , function(data){
 					var obj = JSON.parse(data);
 						for (var i = 0; i < obj.length; i++) {
 							var str = 
@@ -308,7 +308,7 @@ var app = new Framework7({
 					tipehal = "konfirmasichat";
 					localStorage.tipehal = tipehal;
 
-					app.request.post('http://192.168.1.8:280/ecurhat/showlistkeluhan.php', {username, status, tipehal} , function(data){
+					app.request.post('http://172.20.10.2:280/ecurhat/showlistkeluhan.php', {username, status, tipehal} , function(data){
 					var obj = JSON.parse(data);
 						for (var i = 0; i < obj.length; i++) {
 							var str = 
@@ -346,7 +346,7 @@ var app = new Framework7({
 					$$('#keluhan').html(keluhan);
 
 					// app.dialog.alert(id);
-					app.request.post("http://192.168.1.8:280/ecurhat/viewkeluhan.php?id="+id, {}, function(data){
+					app.request.post("http://172.20.10.2:280/ecurhat/viewkeluhan.php?id="+id, {}, function(data){
 					// app.dialog.alert(data);
 					var obj = JSON.parse(data);
 						for (var i = 0; i < obj.length; i++) {
@@ -390,7 +390,7 @@ var app = new Framework7({
 						$$('#judul').html('Keluhan Admin');
 						if (kategori === 'admin'){
 							$$('#kons').hide();
-							app.request.post("http://192.168.1.8:280/ecurhat/konselor.php", {}, function(data){						
+							app.request.post("http://172.20.10.2:280/ecurhat/konselor.php", {}, function(data){						
 								var result = JSON.parse(data);
 								// console.log(data);
 								var combo1 = "<li class='item-content item-input'>" +
@@ -412,7 +412,7 @@ var app = new Framework7({
 								}
 							});
 
-							app.request.post("http://192.168.1.8:280/ecurhat/masalah.php", {}, function(data){						
+							app.request.post("http://172.20.10.2:280/ecurhat/masalah.php", {}, function(data){						
 								var combo2 = "<br>" +
 									"<li class='item-content item-input'>" +
 										"<div class='item-inner'>" +
@@ -442,7 +442,7 @@ var app = new Framework7({
 						$$('#listkeluhan').html('<div class="left" di><a href="/daftarkeluhan/" class="link icon-only"><i class="icon f7-icons">chevron_left</i></a></div>');
 					}
 					else if(tipe === 'konfirmasichat') {
-						app.request.post("http://192.168.1.8:280/ecurhat/viewkeluhanwithpegawai.php?id="+id, {}, function(data){
+						app.request.post("http://172.20.10.2:280/ecurhat/viewkeluhanwithpegawai.php?id="+id, {}, function(data){
 							var obj = JSON.parse(data);
 							for (var i = 0; i < obj.length; i++) {						
 								var datakonselor = 
@@ -497,7 +497,7 @@ var app = new Framework7({
 								if (bentuk != '') {
 									console.log(kategori);
 									app.dialog.confirm('Apakah anda yakin ingin mengirim keluhan ini kepada konselor?', function () {
-										app.request.post('http://192.168.1.8:280/ecurhat/updatekeluhan.php',
+										app.request.post('http://172.20.10.2:280/ecurhat/updatekeluhan.php',
 											{bentuk, keluhan_id, tipe,kategori}, function(data){
 											var res = data;
 											app.dialog.alert(res);
@@ -512,7 +512,7 @@ var app = new Framework7({
 						}
 						else if (tipe === 'konfirmasichat'){
 							app.dialog.confirm('Apakah anda yakin ingin membuatkan chat?', function () {
-								app.request.post('http://192.168.1.8:280/ecurhat/updatekeluhan.php',
+								app.request.post('http://172.20.10.2:280/ecurhat/updatekeluhan.php',
 									{keluhan_id, tipe,kategori}, function(data){
 									var res = data;
 									app.dialog.alert(res);
@@ -544,7 +544,7 @@ var app = new Framework7({
 					  source: function (query, render) {
 					    var results = [];
 					    // Find matched items
-					    app.request.post('http://192.168.1.8:280/ecurhat/masalah.php', function(data){
+					    app.request.post('http://172.20.10.2:280/ecurhat/masalah.php', function(data){
 							var obj = JSON.parse(data);
 							for (var i = 0; i < obj.length; i++) {
 						      if (obj[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(obj[i]);
@@ -557,7 +557,7 @@ var app = new Framework7({
 					$$("#btnkrmkategori").on('click', function(){
 						var x = new FormData($$('.kategori')[0]);
 				       								
-						app.request.post('http://192.168.1.8:280/ecurhat/insertkategori.php', 
+						app.request.post('http://172.20.10.2:280/ecurhat/insertkategori.php', 
 						x, function(data){
 							app.dialog.alert(data);
 						
@@ -578,7 +578,7 @@ var app = new Framework7({
 					tipehal = 'pesan';
 					localStorage.tipehal = tipehal;
 
-					app.request.post('http://192.168.1.8:280/ecurhat/pesan.php',{username, status, tipehal}, function(data){
+					app.request.post('http://172.20.10.2:280/ecurhat/pesan.php',{username, status, tipehal}, function(data){
 						var obj = JSON.parse(data);
 						// console.log(data);
 						for (var i = 0; i < obj.length; i++) {
@@ -635,7 +635,7 @@ var app = new Framework7({
 					localStorage.tipehal = tipehal;
 					// $$("#sendchat").hide();
 
-					app.request.post('http://192.168.1.8:280/ecurhat/pesan.php',{username, status, tipehal}, function(data){
+					app.request.post('http://172.20.10.2:280/ecurhat/pesan.php',{username, status, tipehal}, function(data){
 						console.log(data);
 						var obj = JSON.parse(data);
 						for (var i = 0; i < obj.length; i++) {
@@ -646,7 +646,7 @@ var app = new Framework7({
 							var namapegawai = obj[i]['nama_pegawai'];
 							
 							if (status == 'klien') {
-								app.request.post('http://192.168.1.8:280/ecurhat/readchat.php',{status,idpegawai,idroom,idklien},function(data){
+								app.request.post('http://172.20.10.2:280/ecurhat/readchat.php',{status,idpegawai,idroom,idklien},function(data){
 									var objct = JSON.parse(data);
 									for (var i = 0; i < objct.length; i++) {
 										var sndmsg = 
@@ -663,7 +663,7 @@ var app = new Framework7({
 							}
 
 							if (status == 'konselor'){
-								app.request.post('http://192.168.1.8:280/ecurhat/readchat.php',{status,idpegawai,idroom,idklien},function(data){
+								app.request.post('http://172.20.10.2:280/ecurhat/readchat.php',{status,idpegawai,idroom,idklien},function(data){
 									var objct = JSON.parse(data);
 									// console.log(data);
 									for (var i = 0; i < objct.length; i++) {
@@ -686,7 +686,7 @@ var app = new Framework7({
 					$$("#btnkrmpesan").on('click', function(){
 						var teks = $$("#msgtxt").val();
 				       	// app.dialog.alert(teks);						
-						app.request.post('http://192.168.1.8:280/ecurhat/sendchat.php',{username, status,teks,id}, function(data){
+						app.request.post('http://172.20.10.2:280/ecurhat/sendchat.php',{username, status,teks,id}, function(data){
 							// console.log(data);
 							// if(data == 'berhasil'){
 								// app.dialog.alert(teks);
@@ -715,7 +715,7 @@ var app = new Framework7({
 					tipehal = "daftarprogress";
 					localStorage.tipehal = tipehal;
 
-					app.request.post('http://192.168.1.8:280/ecurhat/showlistkeluhan.php', {username, status, tipehal} , function(data){
+					app.request.post('http://172.20.10.2:280/ecurhat/showlistkeluhan.php', {username, status, tipehal} , function(data){
 					var obj = JSON.parse(data);
 						for (var i = 0; i < obj.length; i++) {
 							var str = 
@@ -763,7 +763,7 @@ var app = new Framework7({
 					// });
 					$$('#btnkrmprogress').on('click', function(){
 						var x = new FormData($$('.progresskeluhan')[0]);
-						app.request.post('http://192.168.1.8:280/ecurhat/insertprogress.php',x,function(data){
+						app.request.post('http://172.20.10.2:280/ecurhat/insertprogress.php',x,function(data){
 							app.dialog.alert(data);
 						});
 					});
@@ -825,7 +825,7 @@ var app = new Framework7({
 					$$('#btntambahpegawai').on('click', function(){
 						var x = new FormData($$('.tambahkonselor')[0]);
 				       								
-						app.request.post('http://192.168.1.8:280/ecurhat/registeruser.php', 
+						app.request.post('http://172.20.10.2:280/ecurhat/registeruser.php', 
 						x, function(data){							
 							app.dialog.alert('Akun Konselor berhasil terdaftar');
 							page.router.navigate('/berandabackend/');
